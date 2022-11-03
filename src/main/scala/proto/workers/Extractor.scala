@@ -15,7 +15,7 @@ class Extractor {
     )
 
     var counter : Int = 0
-    val maxReqPerFile : Int = 5
+    val maxReqPerFile : Int = 2
     var listTweets = List[TwitterSearchResponse]()
 
     while(true) {
@@ -27,7 +27,7 @@ class Extractor {
 
           // Write CSV
           if (counter % maxReqPerFile == 0) {
-            WriterCSV.writeJsonToCSV(listTweets)
+            WriterCSV.writeJsonToHDFS(listTweets)
           }
 
 
